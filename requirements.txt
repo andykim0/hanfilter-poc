@@ -1,0 +1,9 @@
+python-docx        # DOCX 읽기/쓰기, run 단위 색상·크기·숨김 속성 접근
+pdfplumber         # PDF 문자별 색상·폰트크기·좌표 접근 (읽기)
+reportlab          # PDF 샘플 생성 (흰색/초소형 텍스트 심기)
+rich               # 콘솔에 탐지 결과를 표로 예쁘게 출력
+
+# --- 웹 데모(server.py) ---
+fastapi            # 데모 백엔드 API
+uvicorn            # ASGI 서버
+python-multipart   # 파일 업로드 파싱

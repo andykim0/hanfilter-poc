@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HANFILTER — 문서 은닉 인젝션 탐지</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="logo">🛡️</span>
+      <div>
+        <h1>HANFILTER</h1>
+        <p class="tagline">문서 구조에 <b>숨겨진 프롬프트 인젝션</b>을 탐지 · AI 없이 결정론적 파싱</p>
+      </div>
+    </div>
+    <div class="header-badge">CODEGATE 2026 예선 PoC</div>
+  </header>
+
+  <main>
+    <!-- 좌: 입력 -->
+    <section class="panel input-panel">
+      <h2>1 · 문서 선택</h2>
+
+      <div id="dropzone" class="dropzone">
+        <input type="file" id="fileInput" accept=".docx,.pdf" hidden />
+        <div class="dz-inner">
+          <span class="dz-icon">📄</span>
+          <p><b>여기로 문서를 끌어다 놓거나</b> 클릭해서 선택</p>
+          <p class="dz-sub">.docx / .pdf · 문서는 서버 메모리에서만 검사되고 저장되지 않습니다</p>
+        </div>
+      </div>
+
+      <div class="sample-head">
+        <h3>또는 번들 샘플로 시연</h3>
+        <span class="hint">회색=정상 · 빨강=공격</span>
+      </div>
+      <div id="sampleGallery" class="sample-gallery">
+        <div class="loading">샘플 불러오는 중…</div>
+      </div>
+    </section>
+
+    <!-- 우: 결과 -->
+    <section class="panel result-panel">
+      <h2>2 · 탐지 결과</h2>
+      <div id="result" class="result-empty">
+        <span class="empty-icon">🔍</span>
+        <p>왼쪽에서 문서를 선택하면 여기에 결과가 표시됩니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-detectors">
+      <span>탐지 항목:</span>
+      <code>흰색 글자</code><code>초소형 폰트</code><code>숨김 속성</code>
+      <code>메타데이터</code><code>제로폭 문자</code><code>페이지 밖 좌표</code>
+    </div>
+    <div class="footer-note">python-docx · pdfplumber · reportlab (모두 상업 친화 라이선스, PyMuPDF 회피)</div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
